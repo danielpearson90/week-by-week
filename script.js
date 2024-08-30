@@ -1,7 +1,6 @@
 const options = { timeZone: "Australia/Sydney" };
 const sydneyDate = new Intl.DateTimeFormat("en-US", options).format(new Date());
-const currentDate = new Date("2024-09-28T00:00:00+11:00")
-new Date(sydneyDate);
+const currentDate = new Date(sydneyDate);
 const dayNumber = currentDate.getDay();
 
 // Change semester start dates here
