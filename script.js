@@ -1,6 +1,7 @@
 const options = { timeZone: "Australia/Sydney" };
 const sydneyDate = new Intl.DateTimeFormat("en-US", options).format(new Date());
-const currentDate = new Date(sydneyDate);
+const currentDate = new Date("2024-09-28T00:00:00+11:00")
+new Date(sydneyDate);
 const dayNumber = currentDate.getDay();
 
 // Change semester start dates here
@@ -17,15 +18,46 @@ let message1;
 
 // Check which semester it is
 if (currentDate < october) { // If current date is before start of Semester 2
-    message1 = "before the start of the Intensive October Teaching Period.";
+    message1 = "before the start ";
 } else if (currentDate > lastDay) { // If current date is after the end of the Intensive October Teaching Period
-    message1 = "after the end of the Intensive October Teaching Period.";
+    message1 = "after the end ";
 } else { // If current date is during the Intensive October Teaching Period
     const dayX = daysSinceStart + 1; // Adding 1 because daysSinceStart is zero-based
-    message1 = `day ${dayX} of ${totalDays} of the Intensive October Teaching Period`;
+    message1 = `day ${dayX} of ${totalDays} `;
 }
 
 document.getElementById("week-display").innerHTML = message1; // [N.B: if you want to change the text preceding the counter, do so here]
+
+// Optionally display message
+let message2;
+
+if (currentDate < october) {
+    message2 = "The Intensive October Teaching Period starts on the 16th of September.";
+} else if (currentDate < new Date("2024-09-20T00:00:00+11:00")) {
+    message2 = "By now, you should be progressing through <span style='font-weight: bold;'>Module 1</span>.<br>Feel free to get a head start on the upcoming modules!";
+} else if (currentDate < new Date("2024-09-26T00:00:00+11:00")) {
+    message2 = "By now, you should be progressing through <span style='font-weight: bold;'>Module 2</span>.<br>Feel free to get a head start on the upcoming modules!";
+} else if (currentDate < new Date("2024-10-01T00:00:00+11:00")) {
+    message2 = "By now, you should be progressing through <span style='font-weight: bold;'>Module 3</span>.<br>Feel free to get a head start on the upcoming modules!";
+} else if (currentDate < new Date("2024-10-06T00:00:00+11:00")) {
+    message2 = "By now, you should be progressing through <span style='font-weight: bold;'>Module 4</span>.<br>Feel free to get a head start on the upcoming modules!";
+} else if (currentDate < new Date("2024-10-11T00:00:00+11:00")) {
+    message2 = "By now, you should be progressing through <span style='font-weight: bold;'>Module 5</span>.<br>Feel free to get a head start on the upcoming modules!";
+} else if (currentDate < new Date("2024-10-16T00:00:00+11:00")) {
+    message2 = "By now, you should be progressing through <span style='font-weight: bold;'>Module 6</span>.<br>Feel free to get a head start on the upcoming modules!";
+} else if (currentDate < new Date("2024-10-21T00:00:00+11:00")) {
+    message2 = "By now, you should be progressing through <span style='font-weight: bold;'>Module 7</span>.<br>Feel free to get a head start on the upcoming modules!";
+} else if (currentDate < new Date("2024-10-26T00:00:00+11:00")) {
+    message2 = "By now, you should be progressing through <span style='font-weight: bold;'>Module 8</span>.";
+} else {
+    message2 = "";
+}
+
+document.getElementById("message-display").innerHTML = message2;
+
+
+
+
 
 // Optionally display/update progress bar
 const updateProgressBar = () => {

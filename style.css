@@ -99,7 +99,7 @@ figure {
 
 blockquote::before {
     font-family: Georgia;
-    content: "\201C";
+    /* content: "\201C"; */
     font-size: 2em;
     color: var(--text);
     opacity: 0.3;
