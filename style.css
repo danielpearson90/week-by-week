@@ -27,12 +27,12 @@ time, mark, audio, video {
     --bg: white;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root {
         --text: rgba(255, 255, 255, 0.81);
         --bg: rgb(37, 37, 37);
     }
-}
+} */
 
 p, span, figure {
     display: inline;
