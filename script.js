@@ -4,7 +4,7 @@ const currentDate = new Date(sydneyDate);
 const dayNumber = currentDate.getDay();
 
 // Change semester start dates here
-const october = new Date("2024-09-16T00:00:00+11:00");
+const october = new Date("2025-09-22T00:00:00+11:00");
 
 // Calculate the number of days since the start of the semester
 const daysSinceStart = Math.floor(
@@ -12,7 +12,7 @@ const daysSinceStart = Math.floor(
 );
 
 // Define the total number of days in the Intensive October Teahing Period
-const lastDay = new Date("2024-10-27T23:59:00+11:00");
+const lastDay = new Date("2025-11-02T23:59:00+11:00");
 const totalDays = Math.floor((lastDay - october) / (1000 * 60 * 60 * 24)) + 1; // Adding 1 to include the last day
 
 let message1;
@@ -37,22 +37,22 @@ let message2;
 
 if (currentDate < october) {
   message2 =
-    "The Intensive October Teaching Period starts on the 16th of September.";
-} else if (currentDate < new Date("2024-09-22T00:00:00+11:00")) {
+    "The Intensive September-October Teaching Period starts on the 22nd of September.";
+} else if (currentDate < new Date("2025-09-27T00:00:00+11:00")) {
   message2 =
     "By now, you should be progressing through <span style='font-weight: bold;'>Module 1</span>.<br>Feel free to get a head start on the upcoming modules!";
-} else if (currentDate < new Date("2024-09-28T00:00:00+11:00")) {
+} else if (currentDate < new Date("2025-10-03T00:00:00+11:00")) {
   message2 =
     "By now, you should be progressing through <span style='font-weight: bold;'>Modules 2 and 3</span>.<br>Feel free to get a head start on the upcoming modules!";
-} else if (currentDate < new Date("2024-10-12T00:00:00+11:00")) {
+} else if (currentDate < new Date("2025-10-17T00:00:00+11:00")) {
   message2 =
     "By now, you should be progressing through <span style='font-weight: bold;'>Modules 4 and 5</span>.<br>Feel free to get a head start on the upcoming modules!";
-} else if (currentDate < new Date("2024-10-19T00:00:00+11:00")) {
+} else if (currentDate < new Date("2025-10-24T00:00:00+11:00")) {
   message2 =
     "By now, you should be progressing through <span style='font-weight: bold;'>Modules 6 and 7</span>.<br>Feel free to get a head start on the upcoming modules!";
 } else if (currentDate <= lastDay) {
   message2 =
-    "By now, you should be progressing through <span style='font-weight: bold;'>Module 8</span>.<br>Feel free to get a head start on the upcoming modules!";
+    "By now, you should be progressing through <span style='font-weight: bold;'>Module 8</span>.";
 } else {
   message2 = "";
 }
