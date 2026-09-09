@@ -4,15 +4,15 @@ const currentDate = new Date(sydneyDate);
 const dayNumber = currentDate.getDay();
 
 // Change semester start dates here
-const october = new Date("2025-09-22T00:00:00+11:00");
+const october = new Date("2026-09-21T00:00:00+11:00");
 
 // Calculate the number of days since the start of the semester
 const daysSinceStart = Math.floor(
-  (currentDate - october) / (1000 * 60 * 60 * 24)
+  (currentDate - october) / (1000 * 60 * 60 * 24),
 );
 
 // Define the total number of days in the Intensive October Teahing Period
-const lastDay = new Date("2025-11-02T23:59:00+11:00");
+const lastDay = new Date("2026-11-01T23:59:00+11:00");
 const totalDays = Math.floor((lastDay - october) / (1000 * 60 * 60 * 24)) + 1; // Adding 1 to include the last day
 
 let message1;
@@ -38,16 +38,16 @@ let message2;
 if (currentDate < october) {
   message2 =
     "The Intensive September-October Teaching Period starts on the 22nd of September.";
-} else if (currentDate < new Date("2025-09-27T00:00:00+11:00")) {
+} else if (currentDate < new Date("2026-09-26T00:00:00+11:00")) {
   message2 =
     "By now, you should be progressing through <span style='font-weight: bold;'>Module 1</span>.<br>Feel free to get a head start on the upcoming modules!";
-} else if (currentDate < new Date("2025-10-03T00:00:00+11:00")) {
+} else if (currentDate < new Date("2026-10-02T00:00:00+11:00")) {
   message2 =
     "By now, you should be progressing through <span style='font-weight: bold;'>Modules 2 and 3</span>.<br>Feel free to get a head start on the upcoming modules!";
-} else if (currentDate < new Date("2025-10-17T00:00:00+11:00")) {
+} else if (currentDate < new Date("2026-10-16T00:00:00+11:00")) {
   message2 =
     "By now, you should be progressing through <span style='font-weight: bold;'>Modules 4 and 5</span>.<br>Feel free to get a head start on the upcoming modules!";
-} else if (currentDate < new Date("2025-10-24T00:00:00+11:00")) {
+} else if (currentDate < new Date("2026-10-23T00:00:00+11:00")) {
   message2 =
     "By now, you should be progressing through <span style='font-weight: bold;'>Modules 6 and 7</span>.<br>Feel free to get a head start on the upcoming modules!";
 } else if (currentDate <= lastDay) {
@@ -71,7 +71,7 @@ const updateProgressBar = () => {
   // Calculate progress percentage, treating NaN as 100% and negative numbers as 0%
   const progressPercentage = Math.min(
     Math.max((daysSinceStart / totalDays) * 100, 0),
-    100
+    100,
   );
 
   const dashArray = Math.PI * 2 * 45;
