@@ -6,7 +6,7 @@ Made by [@jamlaubro](https://github.com/jamlaubro), expanded by [@taylorsudo](ht
 
 ## Changes
 
-- Updated the dates and display message for the 2024 October Intensive Teaching Period
+- Updated the dates and display message for the 2026 September-October Intensive Teaching Period
 
 ## Screenshots
 

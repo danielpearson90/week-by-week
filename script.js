@@ -1,7 +1,6 @@
 const options = { timeZone: "Australia/Sydney" };
 const sydneyDate = new Intl.DateTimeFormat("en-US", options).format(new Date());
 const currentDate = new Date(sydneyDate);
-const dayNumber = currentDate.getDay();
 
 // Change semester start dates here
 const october = new Date("2026-09-21T00:00:00+11:00");
@@ -11,7 +10,7 @@ const daysSinceStart = Math.floor(
   (currentDate - october) / (1000 * 60 * 60 * 24),
 );
 
-// Define the total number of days in the Intensive October Teahing Period
+// Define the total number of days in the Intensive October Teaching Period
 const lastDay = new Date("2026-11-01T23:59:00+11:00");
 const totalDays = Math.floor((lastDay - october) / (1000 * 60 * 60 * 24)) + 1; // Adding 1 to include the last day
 
@@ -30,14 +29,15 @@ if (currentDate < october) {
   message1 = `day ${dayX} of ${totalDays} `;
 }
 
-document.getElementById("week-display").innerHTML = message1; // [N.B: if you want to change the text preceding the counter, do so here]
+const weekDisplay = document.getElementById("week-display"); // [N.B: if you want to change the text preceding the counter, do so here]
+if (weekDisplay) weekDisplay.innerHTML = message1;
 
 // Optionally display message
 let message2;
 
 if (currentDate < october) {
   message2 =
-    "The Intensive September-October Teaching Period starts on the 22nd of September.";
+    "The Intensive September-October Teaching Period starts on the 21st of September.";
 } else if (currentDate < new Date("2026-09-26T00:00:00+11:00")) {
   message2 =
     "By now, you should be progressing through <span style='font-weight: bold;'>Module 1</span>.<br>Feel free to get a head start on the upcoming modules!";
@@ -57,12 +57,16 @@ if (currentDate < october) {
   message2 = "";
 }
 
-document.getElementById("message-display").innerHTML = message2;
+const messageDisplay = document.getElementById("message-display");
+if (messageDisplay) messageDisplay.innerHTML = message2;
 
 // Optionally display/update progress bar
 const updateProgressBar = () => {
   const progressCircle = document.getElementById("progress-circle");
   const percentage = document.getElementById("percentage");
+
+  // The banner pages have no progress ring, only #week-display
+  if (!progressCircle || !percentage) return;
 
   // Calculate the number of days since the start of the semester
   const daysSinceStart =
